@@ -21,7 +21,7 @@ public class projetpoo {
       //System.out.println(ip1.getRepresentation());
 
       GregorianCalendar date1 = new GregorianCalendar(1994,01,05,12,30);
-      GregorianCalendar date2 = new GregorianCalendar(1994,01,05,14,29);
+      GregorianCalendar date2 = new GregorianCalendar(1994,01,05,15,29);
 
       PrecedenceConstraint osef = new PrecedenceConstraint(ip1,ip2);
 
