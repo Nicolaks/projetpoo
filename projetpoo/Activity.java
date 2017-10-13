@@ -2,10 +2,10 @@ package projetpoo;
 
 import java.util.GregorianCalendar;
 
-public class Activity {
+public class Activity {//class Activity permettant représenter des crénaux horaires
 
-  private String descr;
-  private int duree;
+  private String descr;//Description du crénaux
+  private int duree;//En minute
 
   public Activity (String descr, int duree){
 
@@ -17,6 +17,12 @@ public class Activity {
   public String getRepresentation() {
 
     return descr+" "+duree;
+
+  }
+
+  public int getDuree(){
+    System.out.println("duree test"+this.duree);
+    return this.duree;
 
   }
 
