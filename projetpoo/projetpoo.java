@@ -20,10 +20,10 @@ public class projetpoo {
 
       //System.out.println(ip1.getRepresentation());
 
-      GregorianCalendar date1 = new GregorianCalendar(1994,01,05,12,30);
+      GregorianCalendar date1 = new GregorianCalendar(1994,01,05,12,30);//Création d'un grégorianCalendar
       GregorianCalendar date2 = new GregorianCalendar(1994,01,05,15,29);
 
-      PrecedenceConstraint osef = new PrecedenceConstraint(ip1,ip2);
+      PrecedenceConstraint osef = new PrecedenceConstraint(ip1,ip2);//Création d'un PrecedenceConstraint pour ip1 et ip2
 
       System.out.println(osef.isSatisfied(date1,date2));
 

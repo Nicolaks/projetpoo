@@ -14,14 +14,14 @@ public class Activity {//class Activity permettant représenter des crénaux hor
 
   }
 
-  public String getRepresentation() {
+  public String getRepresentation() {//Retourne la répresentation de la description plus la durée
 
     return descr+" "+duree;
 
   }
 
-  public int getDuree(){
-    System.out.println("duree test"+this.duree);
+  public int getDuree(){//Retourne la représentation de la durée
+    //System.out.println("duree test"+this.duree);
     return this.duree;
 
   }

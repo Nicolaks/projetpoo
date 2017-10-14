@@ -14,7 +14,7 @@ public class PrecedenceConstraint {//Représente des contraintes de précédence
 
   }
 
-
+  /*Methode qui permet de regarder si deux dates différentes de se chefauchent pas*/
   public boolean isSatisfied(GregorianCalendar date1, GregorianCalendar date2){
 
     int dureeHeure=0;//initialise la duree qui sert a determiner le nombre d'heure(s) du ip1
@@ -30,7 +30,7 @@ public class PrecedenceConstraint {//Représente des contraintes de précédence
     //System.out.println(" YEAR "+date1.get(GregorianCalendar.YEAR)+" MONTH "+date1.get(GregorianCalendar.MONTH)+" DAY_OF_MONTH "+date1.get(GregorianCalendar.DAY_OF_MONTH)+" HOUR_OF_DAY "+date1.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+date1.get(GregorianCalendar.MINUTE));
     //System.out.println(" YEAR "+date2.get(GregorianCalendar.YEAR)+" MONTH "+date2.get(GregorianCalendar.MONTH)+" DAY_OF_MONTH "+date2.get(GregorianCalendar.DAY_OF_MONTH)+" HOUR_OF_DAY "+date2.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+date2.get(GregorianCalendar.MINUTE));
 
-    if(
+    if(//Vérification de l'heure et de la minute
       (date1.get(GregorianCalendar.HOUR_OF_DAY)+dureeHeure < date2.get(GregorianCalendar.HOUR_OF_DAY))//test si l'heure de date2 est supérieure à (l'heure de date1 + la durée en heure)
     ||//sinon
       (
@@ -40,9 +40,10 @@ public class PrecedenceConstraint {//Représente des contraintes de précédence
       )
     )
     {
-      return true;
+      return true; //Retourne true si toutes les conditions sont bonnes
     }
-    else
+    
+    else //Retourne false si les conditions ne sont pas bonnes
     {
       return false;
     }
