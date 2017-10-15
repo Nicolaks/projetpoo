@@ -12,11 +12,18 @@ public class PrecedenceConstraintWithDuration extends PrecedenceConstraint {
 	private int durMAx;
 
 
-	public PrecedenceConstraintWithDuration(int durMin, int durMax) {
+	public PrecedenceConstraintWithDuration(Activity first,Activity second,int durMin, int durMax) {
+
+		super( first, second);//Permet de récuperer les attributs de la methode hérité
 
 		this.durMin = durMin;
 		this.durMAx = durMax;
 
+	}
+
+	public String getPrec(){//Retourne juste durMin et durMax
+
+		return this.durMin + " " + this.durMAx;
 	}
 
 }
