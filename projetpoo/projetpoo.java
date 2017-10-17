@@ -24,14 +24,14 @@ public class projetpoo {
       GregorianCalendar date2 = new GregorianCalendar(1994,01,05,15,4);
 
       PrecedenceConstraint PrecConstraint = new PrecedenceConstraint(ip1,ip2);
-      
+
       int durMin = 120;
       int durMax = 240;
       PrecedenceConstraintWithDuration PrecConstraintWDur = new PrecedenceConstraintWithDuration(ip1,ip2,durMin,durMax);
-      
+
       System.out.println(PrecConstraint.isSatisfied(date1,date2));
-      
-      System.out.println(PrecConstraintWDur.isSatified(date1,date2,durMin,durMax));
+
+      System.out.println(PrecConstraintWDur.isSatisfied(date1,date2,durMin,durMax));
 
 
 
