@@ -15,9 +15,7 @@ public class Activity {//class Activity permettant représenter des crénaux hor
   }
 
   public String getRepresentation() {
-
     return descr+" "+duree;
-
   }
 
   public int getDuree(){
