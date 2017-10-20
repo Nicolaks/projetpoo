@@ -5,13 +5,7 @@ import java.time.LocalDateTime;
 import java.util.GregorianCalendar;//Importations de GregorianCalendar
 
 public class projetpoo {
-/*
-  private int year = 1997;
-  private int month = 02;
-  private int dayOfMonth = 05;
-  private int hourOfDay = 17;
-  private int minute = 31;
-*/
+
     public static void main (String [] args) {//Fonction principale
 
       Activity ip1 = new Activity("155 minutes",155);
@@ -19,15 +13,6 @@ public class projetpoo {
       //System.out.println("getDuree ip1 = "+ip1.getDuree());
       //System.out.println("getDuree ip2 = "+ip2.getDuree());
       Schedule edt = new Schedule();
-
-
-      /*
-      //condition
-      for(int i=0;i<2;i++){
-        addActivity(edt);
-        //edt.addSchedule(chepAct,chepGreg);
-      }
-      */
 
     int choix;
     System.out.println("Voulez vous entrer une acivite? [1 = Yes / 0 = No]");
@@ -37,14 +22,20 @@ public class projetpoo {
       addActivity(edt);
       System.out.println(edt.getRepresentation());
       //System.out.println(ip1.getRepresentation());
+
       System.out.println("Voulez vous entrer une acivite? [1 = Yes / 0 = No]");
       scan2 = new Scanner(System.in);
       choix = scan2.nextInt();
       }
       System.out.println(edt.getRepresentation());
+
+      //PrecedenceConstraint.isSatisfied() Récuperer date1 et date2
+      /*K1:(v1,v2), k2:(v3)*/
+
+
     }
 
-    public static /*Pair<Activity, GregorianCalendar>*/void addActivity(Schedule edt){
+    public static void addActivity(Schedule edt){
         //INPUT activite
         System.out.println("entrez l'activite en format AAAA MM JJ HH mm nomActivite DUREE");
         Scanner scan = new Scanner(System.in);
@@ -55,7 +46,6 @@ public class projetpoo {
         int minute = scan.nextInt();
         String nomActivite = scan.next();
         int duration = scan.nextInt();
-        //System.out.println(an +" "+ mois +" "+ jour +" "+ heure +" "+ minute +" "+ nomActivite +" "+ duration);
         Activity chepoActivity = new Activity(nomActivite,duration);
         GregorianCalendar chepoDate = new GregorianCalendar(an,mois,jour,heure,minute);
 
@@ -65,19 +55,8 @@ public class projetpoo {
           chepoDate.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+chepoDate.get(GregorianCalendar.MINUTE));
 
         edt.addSchedule(chepoActivity, chepoDate);
-
-
-
-      }/*
-      else{
-        System.out.println("ressai");
-      }*/
-
-      ////////return new Pair<>(chepoActivity,chepoDate) ;
+      }
       //Fin INPUT
-
-
-
 
       /*          //COMPARAISON
       GregorianCalendar date1 = new GregorianCalendar(1994,01,05,12,30);

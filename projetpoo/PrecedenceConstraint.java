@@ -41,26 +41,9 @@ public class PrecedenceConstraint {//Représente des contraintes de précédence
 
     if (compare == 0 || compare > 0) {
     	return true;
-    }else {
+    }
+    else {
     	return false;
     }
-
-    /*		ANCIEN CODE NON FONCTIONNEL POUR JOURS DIFFERENTS ET DECALAGE(VOIR ANCIENT COMMIT)
-    if(
-      (finDate1.get(GregorianCalendar.HOUR_OF_DAY) < date2.get(GregorianCalendar.HOUR_OF_DAY))//test si l'heure de date2 est supérieure à (l'heure de date1 + la durée en heure)
-    ||//sinon
-      (
-      (finDate1.get(GregorianCalendar.MINUTE)<=date2.get(GregorianCalendar.MINUTE))
-      &&
-      (finDate1.get(GregorianCalendar.HOUR_OF_DAY) == date2.get(GregorianCalendar.HOUR_OF_DAY))
-      )
-    )
-    {
-      return true;
-    }
-    else
-    {
-      return false;
-    }*/
   }
 }
