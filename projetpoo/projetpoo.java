@@ -19,50 +19,64 @@ public class projetpoo {
       //System.out.println("getDuree ip1 = "+ip1.getDuree());
       //System.out.println("getDuree ip2 = "+ip2.getDuree());
       Schedule edt = new Schedule();
+
+
+      /*
       //condition
       for(int i=0;i<2;i++){
         addActivity(edt);
         //edt.addSchedule(chepAct,chepGreg);
       }
+      */
+
+    int choix;
+    System.out.println("Voulez vous entrer une acivite? [1 = Yes / 0 = No]");
+    Scanner scan2 = new Scanner(System.in);
+    choix = scan2.nextInt();
+    while(choix == 1){
+      addActivity(edt);
       System.out.println(edt.getRepresentation());
       //System.out.println(ip1.getRepresentation());
+      System.out.println("Voulez vous entrer une acivite? [1 = Yes / 0 = No]");
+      scan2 = new Scanner(System.in);
+      choix = scan2.nextInt();
+      }
+      System.out.println(edt.getRepresentation());
     }
 
     public static /*Pair<Activity, GregorianCalendar>*/void addActivity(Schedule edt){
-      System.out.println("Voulez vous entrer une acivite? [Y/N]");
-      Scanner scan2 = new Scanner(System.in);
-      String choix = scan2.next();
+        //INPUT activite
+        System.out.println("entrez l'activite en format AAAA MM JJ HH mm nomActivite DUREE");
+        Scanner scan = new Scanner(System.in);
+        int an = scan.nextInt();
+        int mois = scan.nextInt();
+        int jour = scan.nextInt();
+        int heure = scan.nextInt();
+        int minute = scan.nextInt();
+        String nomActivite = scan.next();
+        int duration = scan.nextInt();
+        //System.out.println(an +" "+ mois +" "+ jour +" "+ heure +" "+ minute +" "+ nomActivite +" "+ duration);
+        Activity chepoActivity = new Activity(nomActivite,duration);
+        GregorianCalendar chepoDate = new GregorianCalendar(an,mois,jour,heure,minute);
 
-      if(choix=="Y" || choix=="y"){
-      //INPUT activite
-      System.out.println("entrez l'activite en format AAAA MM JJ HH mm nomActivite DUREE");
-      Scanner scan = new Scanner(System.in);
-      int an = scan.nextInt();
-      int mois = scan.nextInt();
-      int jour = scan.nextInt();
-      int heure = scan.nextInt();
-      int minute = scan.nextInt();
-      String nomActivite = scan.next();
-      int duration = scan.nextInt();
-      //System.out.println(an +" "+ mois +" "+ jour +" "+ heure +" "+ minute +" "+ nomActivite +" "+ duration);
-      Activity chepoActivity = new Activity(nomActivite,duration);
-      GregorianCalendar chepoDate = new GregorianCalendar(an,mois,jour,heure,minute);
+        System.out.println(chepoActivity.getRepresentation()+"\n" +"YEAR "+
+          chepoDate.get(GregorianCalendar.YEAR)+" MONTH "+chepoDate.get(GregorianCalendar.MONTH)+
+          " DAY_OF_MONTH "+chepoDate.get(GregorianCalendar.DAY_OF_MONTH)+" HOUR_OF_DAY "+
+          chepoDate.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+chepoDate.get(GregorianCalendar.MINUTE));
 
-      System.out.println(chepoActivity.getRepresentation()+"\n" +"YEAR "+
-        chepoDate.get(GregorianCalendar.YEAR)+" MONTH "+chepoDate.get(GregorianCalendar.MONTH)+
-        " DAY_OF_MONTH "+chepoDate.get(GregorianCalendar.DAY_OF_MONTH)+" HOUR_OF_DAY "+
-        chepoDate.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+chepoDate.get(GregorianCalendar.MINUTE));
+        edt.addSchedule(chepoActivity, chepoDate);
 
-      edt.addSchedule(chepoActivity, chepoDate);
-      }
+
+
+      }/*
       else{
         System.out.println("ressai");
-      }
+      }*/
 
       ////////return new Pair<>(chepoActivity,chepoDate) ;
       //Fin INPUT
 
-    }
+
 
 
       /*          //COMPARAISON
