@@ -26,21 +26,13 @@ public class PrecedenceConstraint {//Représente des contraintes de précédence
       dureeMinutes=dureeMinutes-60;
       dureeHeure=dureeHeure+1;
     }
-    //System.out.println("dureeHeure : "+ dureeHeure +" dureeMinutes : "+ dureeMinutes);//affiche le temps de l'activite 1 en heures & minutes
 
-    //GregorianCalendar finDate1 = new GregorianCalendar(date1.get(GregorianCalendar.YEAR),date1.get(GregorianCalendar.MONTH),date1.get(GregorianCalendar.DAY_OF_MONTH),date1.get(GregorianCalendar.HOUR_OF_DAY),date1.get(GregorianCalendar.MINUTE)+saveDuree);//creer le calendar qui est au moment de fin de first
     GregorianCalendar finDate1 = date1;
     finDate1.add(GregorianCalendar.MINUTE, first.getDuree());
-    //		AFFICHAGE DES DATES
 
-    //System.out.println("Date1     YEAR "+date1.get(GregorianCalendar.YEAR)+" MONTH "+date1.get(GregorianCalendar.MONTH)+" DAY_OF_MONTH "+date1.get(GregorianCalendar.DAY_OF_MONTH)+" HOUR_OF_DAY "+date1.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+date1.get(GregorianCalendar.MINUTE));
-    //System.out.println("Date1 fin YEAR "+finDate1.get(GregorianCalendar.YEAR)+" MONTH "+finDate1.get(GregorianCalendar.MONTH)+" DAY_OF_MONTH "+finDate1.get(GregorianCalendar.DAY_OF_MONTH)+" HOUR_OF_DAY "+finDate1.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+finDate1.get(GregorianCalendar.MINUTE));
-    //System.out.println("Date2     YEAR "+date2.get(GregorianCalendar.YEAR)+" MONTH "+date2.get(GregorianCalendar.MONTH)+" DAY_OF_MONTH "+date2.get(GregorianCalendar.DAY_OF_MONTH)+" HOUR_OF_DAY "+date2.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+date2.get(GregorianCalendar.MINUTE));
-
-    //  	VERIFICATION
+  //  	VERIFICATION
 
     int compare =  date2.compareTo(finDate1) ;
-    //System.out.println("finDate1 VS. date2 :"+ compare);//renvoie 1 si finDate1<date2 || 0 si finDate1==date2 || -1 si finDate1>date2
 
     return (compare >= 0);
   }

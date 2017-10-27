@@ -38,29 +38,31 @@ public class projetpoo {
 */
     public static void main (String [] args) {//Fonction principale
 
-      // Activity ip1 = new Activity("155 minutes",155);
-      //System.out.println("getDuree ip1 = "+ip1.getDuree());
-      //System.out.println("getDuree ip2 = "+ip2.getDuree());
       Schedule edt = new Schedule();
 
       Activity act1 = new Activity("POO",40);
       Activity act2 = new Activity("TE",60);
       Activity act3 = new Activity("Maths",10);
+      Activity act4 = new Activity("POO",40);
 
       GregorianCalendar date1 = new GregorianCalendar(2017,10,17,13,50);
       GregorianCalendar date2 = new GregorianCalendar(2017,10,27,14,15);
       GregorianCalendar date3 = new GregorianCalendar(2017,10,10,14,15);
+      GregorianCalendar date4 = new GregorianCalendar(2017,10,10,10,15);
 
       PrecedenceConstraint contrainte1 = new PrecedenceConstraint(act1,act2);
       PrecedenceConstraint contrainte2 = new PrecedenceConstraint(act3,act1);
+      PrecedenceConstraint contrainte3 = new PrecedenceConstraint(act4,act1);
 
       ArrayList<PrecedenceConstraint> toutesContraintes= new ArrayList<> ();
       toutesContraintes.add(contrainte1);
       toutesContraintes.add(contrainte2);
+      toutesContraintes.add(contrainte3);
 
       edt.addSchedule(act1,date1);
       edt.addSchedule(act2,date2);
       edt.addSchedule(act3,date3);
+      edt.addSchedule(act4,date4);
 
       String reprActivite = edt.getRepresentation();
 
@@ -68,69 +70,8 @@ public class projetpoo {
 
       System.out.println(edt.satisfies(toutesContraintes));
 
-    /*int choix;
-    System.out.println("Voulez vous entrer une acivite? [1 = Yes / 0 = No]");
-    Scanner scan2 = new Scanner(System.in);
-    choix = scan2.nextInt();
-    while(choix == 1){
-      addActivity(edt);
-      System.out.println(edt.getRepresentation());
-      //System.out.println(ip1.getRepresentation());
-
-      System.out.println("Voulez vous entrer une acivite? [1 = Yes / 0 = No]");
-      scan2 = new Scanner(System.in);
-      choix = scan2.nextInt();
-      }
-      System.out.println(edt.getRepresentation());
-
-      //PrecedenceConstraint.isSatisfied() Récuperer date1 et date2
-      /*K1:(v1,v2), k2:(v3)*/
-
 
     }
-
-    public static void addActivity(Schedule edt){
-        //INPUT activite
-        /*System.out.println("entrez l'activite en format AAAA MM JJ HH mm nomActivite DUREE");
-        Scanner scan = new Scanner(System.in);
-        int an = scan.nextInt();
-        int mois = scan.nextInt();
-        int jour = scan.nextInt();
-        int heure = scan.nextInt();
-        int minute = scan.nextInt();
-        String nomActivite = scan.next();
-        int duration = scan.nextInt();
-        Activity chepoActivity = new Activity("POO",40);
-        Activity chepoActivityB = new Activity("TE",60);
-        GregorianCalendar chepoDate = new GregorianCalendar(2017,10,27,13,50);
-        GregorianCalendar chepoDateB = new GregorianCalendar(2017,10,23,17,15);
-        PrecedenceConstraint contrainte = new PrecedenceConstraint(chepoActivity,chepoActivityB);
-
-        /*System.out.println(chepoActivity.getRepresentation()+"\n" +"YEAR "+
-          chepoDate.get(GregorianCalendar.YEAR)+" MONTH "+chepoDate.get(GregorianCalendar.MONTH)+
-          " DAY_OF_MONTH "+chepoDate.get(GregorianCalendar.DAY_OF_MONTH)+" HOUR_OF_DAY "+
-          chepoDate.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+chepoDate.get(GregorianCalendar.MINUTE));
-
-        edt.addSchedule(chepoActivity, chepoDate);
-        edt.addSchedule(chepoActivityB,chepoDateB);
-        edt.satisfies(contrainte);*/
-      }
-      //Fin INPUT
-
-      /*          //COMPARAISON
-      GregorianCalendar date1 = new GregorianCalendar(1994,01,05,12,30);
-      GregorianCalendar date2 = new GregorianCalendar(1994,01,05,15,4);
-
-      PrecedenceConstraint PrecConstraint = new PrecedenceConstraint(ip1,ip2);
-
-      int durMin = 120;
-      int durMax = 240;
-      PrecedenceConstraintWithDuration PrecConstraintWDur = new PrecedenceConstraintWithDuration(ip1,ip2,durMin,durMax);
-
-      System.out.println(PrecConstraint.isSatisfied(date1,date2));
-
-      System.out.println(PrecConstraintWDur.isSatisfied(date1,date2,durMin,durMax));
-      */            //FIN COMPARAISON
 
 
 }

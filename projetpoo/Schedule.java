@@ -38,4 +38,18 @@ public class Schedule {
     }
     return true;
   }
+
+   public String toString (ArrayList liste) {
+
+     res="Emploi du temps : ";
+     for (i=0;liste.size();i++) {
+       System.out.println(liste.get(i));
+       res+=liste.get(i)+" ";
+
+     }
+
+     return res;
+
+   }
+
 }
