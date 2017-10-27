@@ -64,16 +64,15 @@ public class projetpoo {
       edt.addSchedule(act3,date3);
       edt.addSchedule(act4,date4);
 
-      System.out.println(edt.toString());
-
       String reprActivite = edt.getRepresentation();
 
+      System.out.println(edt.toString());
+      
       System.out.println(reprActivite);
 
       System.out.println(edt.satisfies(toutesContraintes));
 
 
     }
-
 
 }

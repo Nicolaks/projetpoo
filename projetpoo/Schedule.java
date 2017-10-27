@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.GregorianCalendar;
+import java.util.NoSuchElementException;
 
 public class Schedule {
 
@@ -56,30 +57,57 @@ public class Schedule {
   		if (min != i ) {
   			Collections.swap(listeAct,i,min);
   		}
-
   	}
   	return listeAct;
   }
 
+  private String affichageHeureMinute (GregorianCalendar cal) {
+    return cal.get(GregorianCalendar.HOUR_OF_DAY)+"";
+  }
 
-   public String toString () {
+  public String toString () {
 
-      ArrayList<Activity> liste = this.getSortedActivities();
-      int n = liste.size();
-      String res = "Emploi du temps :\n";
-      for (int i=0;i<n;i++) {
-        res += liste.get(i).getAct()+" "+liste.get(i).getDuree()+"\n";
-      }
+    ArrayList<Activity> liste = this.getSortedActivities();
+    int n = liste.size();
+    String res = "Emploi du temps : \n";
+    for (Activity i : liste) {
+      res += i.getAct()+" : "+this.edt.get(i).get(GregorianCalendar.HOUR_OF_DAY)+"h"+this.edt.get(i).get(GregorianCalendar.MINUTE)+"\n";
+    }
+    return res;
+  }
 
-      return res;
 
+
+   private static Activity next (ArrayList<Activity> activites, ArrayList<PrecedenceConstraint> contraintes,ArrayList<Activity> scheduled) {
+
+     for (Activity i : activites) {
+       boolean ok = true;
+       for (PrecedenceConstraint contraint : contraintes){
+         if (i == contraint.second && !scheduled.contains(contraint.first)){
+           ok = false;
+           break;
+         }
+       }
+       if (ok) {
+         return i;
+       }
+     }
+     throw new NoSuchElementException("pas possible");
    }
 
-  //  private Activity next (ArrayList<Activity> activites, ArrayList<PrecedenceConstraint> contraintes,ArrayList<Activity> scheduled) {
-   //
-   //
-   //
-  //  }
 
+   public static Schedule computeSchedule(ArrayList<Activity> activites, ArrayList<PrecedenceConstraint> contraintes) {
+     Schedule edt = new Schedule();
+     GregorianCalendar date = new GregorianCalendar(2017,10,27,8,0);
+
+
+     while (activites.size() != 0) {
+       next(activites,contraintes,[]);
+     }
+     for (Activity i : activites) {
+       edt.addSchedule(activites,date+activites.getDuree(i));
+     }
+     return edt;
+   }
 
 }
