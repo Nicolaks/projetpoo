@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.GregorianCalendar;
+import java.util.ArrayList;
+
 
 public class Schedule {
 
@@ -29,6 +31,26 @@ public class Schedule {
     }
     return res;
   }
+  
+    private ArrayList<Activity> getSortedActivities(){
+	Set<Activity> set = this.edt.keySet();
+	ArrayList<Activity> listeAct = new ArrayList<Activity>(set);
+	int n = this.edt.size();
+	for ( int i=0 ; i<n ; i++){
+		int min = i;
+		for ( int j=i+1 ; j<n ; j++){
+			if (this.edt.get(listeAct.get(j)).compareTo(this.edt.get(listeAct.get(min)))<0){
+				min=j;
+			}
+		}
+		if (min != i ){
+			Collection.swap(listeAct,i,min);
+		}
+		
+	}
+	return listeAct
+}
+
 
   public boolean satisfies(ArrayList<PrecedenceConstraint> toutesContraintes){
     for(PrecedenceConstraint contrainte: toutesContraintes) {
