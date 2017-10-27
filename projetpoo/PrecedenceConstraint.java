@@ -14,6 +14,8 @@ public class PrecedenceConstraint {//Représente des contraintes de précédence
 
   }
 
+
+
   public boolean isSatisfied(GregorianCalendar date1, GregorianCalendar date2){
 
     int dureeHeure=0;//initialise la duree qui sert a determiner le nombre d'heure(s) du ip1
@@ -24,10 +26,11 @@ public class PrecedenceConstraint {//Représente des contraintes de précédence
       dureeMinutes=dureeMinutes-60;
       dureeHeure=dureeHeure+1;
     }
-    System.out.println("dureeHeure : "+ dureeHeure +" dureeMinutes : "+ dureeMinutes);//affiche le temps de l'activite 1 en heures & minutes
+    //System.out.println("dureeHeure : "+ dureeHeure +" dureeMinutes : "+ dureeMinutes);//affiche le temps de l'activite 1 en heures & minutes
 
-    GregorianCalendar finDate1 = new GregorianCalendar(date1.get(GregorianCalendar.YEAR),date1.get(GregorianCalendar.MONTH),date1.get(GregorianCalendar.DAY_OF_MONTH),date1.get(GregorianCalendar.HOUR_OF_DAY),date1.get(GregorianCalendar.MINUTE)+saveDuree);//creer le calendar qui est au moment de fin de first
-
+    //GregorianCalendar finDate1 = new GregorianCalendar(date1.get(GregorianCalendar.YEAR),date1.get(GregorianCalendar.MONTH),date1.get(GregorianCalendar.DAY_OF_MONTH),date1.get(GregorianCalendar.HOUR_OF_DAY),date1.get(GregorianCalendar.MINUTE)+saveDuree);//creer le calendar qui est au moment de fin de first
+    GregorianCalendar finDate1 = date1;
+    finDate1.add(GregorianCalendar.MINUTE, first.getDuree());
     //		AFFICHAGE DES DATES
 
     //System.out.println("Date1     YEAR "+date1.get(GregorianCalendar.YEAR)+" MONTH "+date1.get(GregorianCalendar.MONTH)+" DAY_OF_MONTH "+date1.get(GregorianCalendar.DAY_OF_MONTH)+" HOUR_OF_DAY "+date1.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+date1.get(GregorianCalendar.MINUTE));
@@ -37,13 +40,17 @@ public class PrecedenceConstraint {//Représente des contraintes de précédence
     //  	VERIFICATION
 
     int compare =  date2.compareTo(finDate1) ;
-    System.out.println("finDate1 VS. date2 :"+ compare);//renvoie 1 si finDate1<date2 || 0 si finDate1==date2 || -1 si finDate1>date2
+    //System.out.println("finDate1 VS. date2 :"+ compare);//renvoie 1 si finDate1<date2 || 0 si finDate1==date2 || -1 si finDate1>date2
 
-    if (compare == 0 || compare > 0) {
-    	return true;
-    }
-    else {
-    	return false;
-    }
+    return (compare >= 0);
   }
+
+  public int getFirst(){
+    return first.getDuree();
+  }
+
+  public int getSecond(){
+    return second.getDuree();
+  }
+
 }

@@ -19,7 +19,7 @@ public class Activity {//class Activity permettant représenter des crénaux hor
   }
 
   public int getDuree(){
-    System.out.println("duree test"+this.duree);
+    //System.out.println("duree test"+this.duree);
     return this.duree;
 
   }

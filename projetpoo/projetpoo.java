@@ -1,5 +1,6 @@
 package projetpoo;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.util.GregorianCalendar;//Importations de GregorianCalendar
@@ -37,20 +38,35 @@ public class projetpoo {
 */
     public static void main (String [] args) {//Fonction principale
 
-      Activity ip1 = new Activity("155 minutes",155);
-      Activity ip2 = new Activity("10 minutes",10);
+      // Activity ip1 = new Activity("155 minutes",155);
       //System.out.println("getDuree ip1 = "+ip1.getDuree());
       //System.out.println("getDuree ip2 = "+ip2.getDuree());
       Schedule edt = new Schedule();
 
-      Activity chepoActivity = new Activity("POO",40);
-      Activity chepoActivityB = new Activity("TE",60);
-      GregorianCalendar chepoDate = new GregorianCalendar(2017,10,27,13,50);
-      GregorianCalendar chepoDateB = new GregorianCalendar(2017,10,23,17,15);
-      PrecedenceConstraint contrainte = new PrecedenceConstraint(chepoActivity,chepoActivityB);
-      edt.addSchedule(chepoActivity, chepoDate);
-      edt.addSchedule(chepoActivityB,chepoDateB);
-      edt.satisfies(contrainte);
+      Activity act1 = new Activity("POO",40);
+      Activity act2 = new Activity("TE",60);
+      Activity act3 = new Activity("Maths",10);
+
+      GregorianCalendar date1 = new GregorianCalendar(2017,10,17,13,50);
+      GregorianCalendar date2 = new GregorianCalendar(2017,10,27,14,15);
+      GregorianCalendar date3 = new GregorianCalendar(2017,10,10,14,15);
+
+      PrecedenceConstraint contrainte1 = new PrecedenceConstraint(act1,act2);
+      PrecedenceConstraint contrainte2 = new PrecedenceConstraint(act3,act1);
+
+      ArrayList<PrecedenceConstraint> toutesContraintes= new ArrayList<> ();
+      toutesContraintes.add(contrainte1);
+      toutesContraintes.add(contrainte2);
+
+      edt.addSchedule(act1,date1);
+      edt.addSchedule(act2,date2);
+      edt.addSchedule(act3,date3);
+
+      String reprActivite = edt.getRepresentation();
+
+      System.out.println(reprActivite);
+
+      System.out.println(edt.satisfies(toutesContraintes));
 
     /*int choix;
     System.out.println("Voulez vous entrer une acivite? [1 = Yes / 0 = No]");
