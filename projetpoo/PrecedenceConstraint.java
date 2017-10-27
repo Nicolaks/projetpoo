@@ -7,7 +7,7 @@ public class PrecedenceConstraint {//Représente des contraintes de précédence
   Activity first;
   Activity second;
 
-  public PrecedenceConstraint(Activity first,Activity second){
+  public PrecedenceConstraint (Activity first,Activity second) {
 
     this.first=first;
     this.second=second;
@@ -16,7 +16,7 @@ public class PrecedenceConstraint {//Représente des contraintes de précédence
 
 
 
-  public boolean isSatisfied(GregorianCalendar date1, GregorianCalendar date2){
+  public boolean isSatisfied (GregorianCalendar date1, GregorianCalendar date2) {
 
     int dureeHeure=0;//initialise la duree qui sert a determiner le nombre d'heure(s) du ip1
     int saveDuree = first.getDuree();
@@ -37,11 +37,11 @@ public class PrecedenceConstraint {//Représente des contraintes de précédence
     return (compare >= 0);
   }
 
-  public int getFirst(){
+  public int getFirst () {
     return first.getDuree();
   }
 
-  public int getSecond(){
+  public int getSecond () {
     return second.getDuree();
   }
 
