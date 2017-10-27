@@ -26,14 +26,14 @@ public class Schedule {
     return res;
   }
 
-  public boolean satisfies(PrecedenceConstraint contrainte){
+  /*public boolean satisfies(PrecedenceConstraint contrainte){
 
-    if(contrainte){
+    /*if(contrainte){
       return true;
     }
     else{
       return false;
     }
 
-  }
+  }*/
 }

@@ -78,10 +78,10 @@ public class projetpoo {
         Activity chepoActivity = new Activity(nomActivite,duration);
         GregorianCalendar chepoDate = new GregorianCalendar(an,mois,jour,heure,minute);
 
-        System.out.println(chepoActivity.getRepresentation()+"\n" +"YEAR "+
+        /*System.out.println(chepoActivity.getRepresentation()+"\n" +"YEAR "+
           chepoDate.get(GregorianCalendar.YEAR)+" MONTH "+chepoDate.get(GregorianCalendar.MONTH)+
           " DAY_OF_MONTH "+chepoDate.get(GregorianCalendar.DAY_OF_MONTH)+" HOUR_OF_DAY "+
-          chepoDate.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+chepoDate.get(GregorianCalendar.MINUTE));
+          chepoDate.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+chepoDate.get(GregorianCalendar.MINUTE));*/
 
         edt.addSchedule(chepoActivity, chepoDate);
       }

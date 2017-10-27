@@ -30,9 +30,9 @@ public class PrecedenceConstraint {//Représente des contraintes de précédence
 
     //		AFFICHAGE DES DATES
 
-    System.out.println("Date1     YEAR "+date1.get(GregorianCalendar.YEAR)+" MONTH "+date1.get(GregorianCalendar.MONTH)+" DAY_OF_MONTH "+date1.get(GregorianCalendar.DAY_OF_MONTH)+" HOUR_OF_DAY "+date1.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+date1.get(GregorianCalendar.MINUTE));
-    System.out.println("Date1 fin YEAR "+finDate1.get(GregorianCalendar.YEAR)+" MONTH "+finDate1.get(GregorianCalendar.MONTH)+" DAY_OF_MONTH "+finDate1.get(GregorianCalendar.DAY_OF_MONTH)+" HOUR_OF_DAY "+finDate1.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+finDate1.get(GregorianCalendar.MINUTE));
-    System.out.println("Date2     YEAR "+date2.get(GregorianCalendar.YEAR)+" MONTH "+date2.get(GregorianCalendar.MONTH)+" DAY_OF_MONTH "+date2.get(GregorianCalendar.DAY_OF_MONTH)+" HOUR_OF_DAY "+date2.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+date2.get(GregorianCalendar.MINUTE));
+    //System.out.println("Date1     YEAR "+date1.get(GregorianCalendar.YEAR)+" MONTH "+date1.get(GregorianCalendar.MONTH)+" DAY_OF_MONTH "+date1.get(GregorianCalendar.DAY_OF_MONTH)+" HOUR_OF_DAY "+date1.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+date1.get(GregorianCalendar.MINUTE));
+    //System.out.println("Date1 fin YEAR "+finDate1.get(GregorianCalendar.YEAR)+" MONTH "+finDate1.get(GregorianCalendar.MONTH)+" DAY_OF_MONTH "+finDate1.get(GregorianCalendar.DAY_OF_MONTH)+" HOUR_OF_DAY "+finDate1.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+finDate1.get(GregorianCalendar.MINUTE));
+    //System.out.println("Date2     YEAR "+date2.get(GregorianCalendar.YEAR)+" MONTH "+date2.get(GregorianCalendar.MONTH)+" DAY_OF_MONTH "+date2.get(GregorianCalendar.DAY_OF_MONTH)+" HOUR_OF_DAY "+date2.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+date2.get(GregorianCalendar.MINUTE));
 
     //  	VERIFICATION
 
