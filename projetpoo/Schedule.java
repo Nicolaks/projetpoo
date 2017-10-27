@@ -26,14 +26,15 @@ public class Schedule {
     return res;
   }
 
-  /*public boolean satisfies(PrecedenceConstraint contrainte){
-
-    /*if(contrainte){
+  public String satisfies(PrecedenceConstraint contrainte){
+    //System.out.println(contrainte);
+    /*if(isSatisfied(contrainte)){
       return true;
     }
     else{
       return false;
-    }
+    }*/
+    return contrainte+" ";
 
-  }*/
+  }
 }

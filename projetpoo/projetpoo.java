@@ -43,7 +43,16 @@ public class projetpoo {
       //System.out.println("getDuree ip2 = "+ip2.getDuree());
       Schedule edt = new Schedule();
 
-    int choix;
+      Activity chepoActivity = new Activity("POO",40);
+      Activity chepoActivityB = new Activity("TE",60);
+      GregorianCalendar chepoDate = new GregorianCalendar(2017,10,27,13,50);
+      GregorianCalendar chepoDateB = new GregorianCalendar(2017,10,23,17,15);
+      PrecedenceConstraint contrainte = new PrecedenceConstraint(chepoActivity,chepoActivityB);
+      edt.addSchedule(chepoActivity, chepoDate);
+      edt.addSchedule(chepoActivityB,chepoDateB);
+      edt.satisfies(contrainte);
+
+    /*int choix;
     System.out.println("Voulez vous entrer une acivite? [1 = Yes / 0 = No]");
     Scanner scan2 = new Scanner(System.in);
     choix = scan2.nextInt();
@@ -66,7 +75,7 @@ public class projetpoo {
 
     public static void addActivity(Schedule edt){
         //INPUT activite
-        System.out.println("entrez l'activite en format AAAA MM JJ HH mm nomActivite DUREE");
+        /*System.out.println("entrez l'activite en format AAAA MM JJ HH mm nomActivite DUREE");
         Scanner scan = new Scanner(System.in);
         int an = scan.nextInt();
         int mois = scan.nextInt();
@@ -75,15 +84,20 @@ public class projetpoo {
         int minute = scan.nextInt();
         String nomActivite = scan.next();
         int duration = scan.nextInt();
-        Activity chepoActivity = new Activity(nomActivite,duration);
-        GregorianCalendar chepoDate = new GregorianCalendar(an,mois,jour,heure,minute);
+        Activity chepoActivity = new Activity("POO",40);
+        Activity chepoActivityB = new Activity("TE",60);
+        GregorianCalendar chepoDate = new GregorianCalendar(2017,10,27,13,50);
+        GregorianCalendar chepoDateB = new GregorianCalendar(2017,10,23,17,15);
+        PrecedenceConstraint contrainte = new PrecedenceConstraint(chepoActivity,chepoActivityB);
 
         /*System.out.println(chepoActivity.getRepresentation()+"\n" +"YEAR "+
           chepoDate.get(GregorianCalendar.YEAR)+" MONTH "+chepoDate.get(GregorianCalendar.MONTH)+
           " DAY_OF_MONTH "+chepoDate.get(GregorianCalendar.DAY_OF_MONTH)+" HOUR_OF_DAY "+
-          chepoDate.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+chepoDate.get(GregorianCalendar.MINUTE));*/
+          chepoDate.get(GregorianCalendar.HOUR_OF_DAY)+" MINUTE "+chepoDate.get(GregorianCalendar.MINUTE));
 
         edt.addSchedule(chepoActivity, chepoDate);
+        edt.addSchedule(chepoActivityB,chepoDateB);
+        edt.satisfies(contrainte);*/
       }
       //Fin INPUT
 
