@@ -109,15 +109,6 @@ public class Schedule {
    public static Schedule computeSchedule(ArrayList<Activity> activites, ArrayList<PrecedenceConstraint> contraintes) {
      Schedule edt = new Schedule();
      GregorianCalendar date = new GregorianCalendar(2017,10,27,8,0);
-
-
-     /*
-
-     - Parcourir la liste des activitées si un activites est "libre" la mettre en première (pas de contrainte).
-     - Stocker les activitées qui on comme contrainte l'activité de la liste juste avant.
-     - Affiche dans l'odre.
-
-     */
      ArrayList<Activity> reste = new ArrayList<Activity> (activites);
      ArrayList<Activity> tableau = new ArrayList<Activity>();
 

@@ -6,81 +6,83 @@ import java.time.LocalDateTime;
 import java.util.GregorianCalendar;//Importations de GregorianCalendar
 
 public class projetpoo {
-/*
-  public LinkedHashMap<Integer, String> sortHashMapByValues(HashMap<Integer, String> passedMap) {
-  List<Integer> mapKeys = new ArrayList<>(passedMap.keySet());
-  List<String> mapValues = new ArrayList<>(passedMap.values());
-  Collections.sort(mapValues);
-  Collections.sort(mapKeys);
 
-  LinkedHashMap<Integer, String> sortedMap =
-      new LinkedHashMap<>();
-
-  Iterator<String> valueIt = mapValues.iterator();
-  while (valueIt.hasNext()) {
-      String val = valueIt.next();
-      Iterator<Integer> keyIt = mapKeys.iterator();
-
-      while (keyIt.hasNext()) {
-          Integer key = keyIt.next();
-          String comp1 = passedMap.get(key);
-          String comp2 = val;
-
-          if (comp1.equals(comp2)) {
-              keyIt.remove();
-              sortedMap.put(key, val);
-              break;
-          }
-      }
-  }
-  return sortedMap;
-  }
-*/
     public static void main (String [] args) {//Fonction principale
 
-      Schedule edt = new Schedule();
-
+      // Schedule edt = new Schedule();
+      //
       Activity act1 = new Activity("POO",40);
       Activity act2 = new Activity("TE",60);
       Activity act3 = new Activity("Maths",10);
       Activity act4 = new Activity("Anglais",40);
-
+      //
       GregorianCalendar date1 = new GregorianCalendar(2017,10,17,13,50);
       GregorianCalendar date2 = new GregorianCalendar(2017,10,27,14,15);
-      GregorianCalendar date3 = new GregorianCalendar(2017,10,10,14,15);
+      GregorianCalendar date3 = new GregorianCalendar(2017,10,10,15,15);
       GregorianCalendar date4 = new GregorianCalendar(2017,10,10,10,15);
+      //
+      // PrecedenceConstraint contrainte1 = new PrecedenceConstraint(act1,act2);
+      // PrecedenceConstraint contrainte2 = new PrecedenceConstraint(act3,act4);
+      // PrecedenceConstraint contrainte3 = new PrecedenceConstraint(act4,act1);
+      //
+      // ArrayList<PrecedenceConstraint> toutesContraintes= new ArrayList<> ();
+      // toutesContraintes.add(contrainte1);
+      // toutesContraintes.add(contrainte2);
+      // toutesContraintes.add(contrainte3);
+      //
+      // edt.addSchedule(act1,date1);
+      // edt.addSchedule(act2,date2);
+      // edt.addSchedule(act3,date3);
+      // edt.addSchedule(act4,date4);
+      //
+      // String reprActivite = edt.getRepresentation();
+      //
+      // ArrayList<Activity> listeActi = new ArrayList<>();
+      // listeActi.add(act1);
+      // listeActi.add(act2);
+      // listeActi.add(act3);
+      // listeActi.add(act4);
+      //
+      // /*System.out.println(edt.toString());
+      //
+      // System.out.println(reprActivite);
+      //
+      // System.out.println(edt.satisfies(toutesContraintes));*/
+      //
+      // Schedule edtTrie = Schedule.computeSchedule(listeActi,toutesContraintes);
+      //
+      // System.out.println(edtTrie);
 
+      ArrayList<Activity> ensemble = new ArrayList<> ();
+      ensemble.add(act1);
+      ensemble.add(act2);
+      ensemble.add(act3);
+      ensemble.add(act4);
+
+      MeetConstraint contraint1 = new MeetConstraint(act2,act1);
+      MeetConstraint contraint2 = new MeetConstraint(act3,act4);
       PrecedenceConstraint contrainte1 = new PrecedenceConstraint(act1,act2);
       PrecedenceConstraint contrainte2 = new PrecedenceConstraint(act3,act4);
-      PrecedenceConstraint contrainte3 = new PrecedenceConstraint(act4,act1);
+      PrecedenceConstraint contraint3 = new PrecedenceConstraint(act4,act1);
 
-      ArrayList<PrecedenceConstraint> toutesContraintes= new ArrayList<> ();
-      toutesContraintes.add(contrainte1);
-      toutesContraintes.add(contrainte2);
-      toutesContraintes.add(contrainte3);
+      ArrayList<BinaryConstraint> listeContrainte = new ArrayList<>();
+      listeContrainte.add(contraint1);
+      listeContrainte.add(contraint2);
+      listeContrainte.add(contraint3);
+      listeContrainte.add(contrainte1);
+      listeContrainte.add(contrainte2);
 
-      edt.addSchedule(act1,date1);
-      edt.addSchedule(act2,date2);
-      edt.addSchedule(act3,date3);
-      edt.addSchedule(act4,date4);
+      ArrayList<PrecedenceConstraint> contraintePrec = new ArrayList<PrecedenceConstraint> ();
+      for (BinaryConstraint contrainte : listeContrainte) {
+        if ( contrainte instanceof PrecedenceConstraint ) {
+          contraintePrec.add((PrecedenceConstraint) contrainte);
+        }
+      }
 
-      String reprActivite = edt.getRepresentation();
 
-      ArrayList<Activity> listeActi = new ArrayList<>();
-      listeActi.add(act1);
-      listeActi.add(act2);
-      listeActi.add(act3);
-      listeActi.add(act4);
+      Schedule edtemps = Schedule.computeSchedule(ensemble,contraintePrec);
+      System.out.println(edtemps);
 
-      /*System.out.println(edt.toString());
-
-      System.out.println(reprActivite);
-
-      System.out.println(edt.satisfies(toutesContraintes));*/
-
-      Schedule edtTrie = Schedule.computeSchedule(listeActi,toutesContraintes);
-
-      System.out.println(edtTrie);
 
 
     }
