@@ -78,8 +78,7 @@ public class projetpoo {
 
       System.out.println(edt.satisfies(toutesContraintes));*/
 
-      Schedule edtTrie = new Schedule();
-      edtTrie.computeSchedule(listeActi,toutesContraintes);
+      Schedule edtTrie = Schedule.computeSchedule(listeActi,toutesContraintes);
 
       System.out.println(edtTrie);
 

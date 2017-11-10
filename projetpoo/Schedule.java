@@ -45,6 +45,7 @@ public class Schedule {
 
   private ArrayList<Activity> getSortedActivities(){
     Set<Activity> set = this.edt.keySet();
+
   	ArrayList<Activity> listeAct = new ArrayList<Activity>(set);
   	int n = this.edt.size();
   	for ( int i=0 ; i<n ; i++) {
@@ -69,6 +70,7 @@ public class Schedule {
 
     ArrayList<Activity> liste = this.getSortedActivities();
     int n = liste.size();
+
     String res = "Emploi du temps : \n";
     for (Activity i : liste) {
       res += i.getAct()+" : "+this.edt.get(i).get(GregorianCalendar.HOUR_OF_DAY)+"h"+this.edt.get(i).get(GregorianCalendar.MINUTE)+"\n";
@@ -108,7 +110,6 @@ public class Schedule {
      - Affiche dans l'odre.
 
      */
-     int taille=activites.size();
      ArrayList<Activity> reste = new ArrayList<Activity> (activites);
      ArrayList<Activity> tableau = new ArrayList<Activity>();
 
@@ -119,14 +120,11 @@ public class Schedule {
         reste.remove(nextAct);
      }
      for (Activity i : tableau) {
-       if (i==0){
-         edt.addSchedule(i,date);
-       }
+       GregorianCalendar newDate = (GregorianCalendar) date.clone();
+       edt.addSchedule(i,newDate);
        date.add(GregorianCalendar.MINUTE, i.getDuree());
-       edt.addSchedule(i,date);
-       System.out.println(edt);
+
      }
-     System.out.println(edt);
      return edt;
    }
 
