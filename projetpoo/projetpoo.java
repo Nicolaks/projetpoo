@@ -43,7 +43,7 @@ public class projetpoo {
       Activity act1 = new Activity("POO",40);
       Activity act2 = new Activity("TE",60);
       Activity act3 = new Activity("Maths",10);
-      Activity act4 = new Activity("POO",40);
+      Activity act4 = new Activity("Anglais",40);
 
       GregorianCalendar date1 = new GregorianCalendar(2017,10,17,13,50);
       GregorianCalendar date2 = new GregorianCalendar(2017,10,27,14,15);
@@ -51,7 +51,7 @@ public class projetpoo {
       GregorianCalendar date4 = new GregorianCalendar(2017,10,10,10,15);
 
       PrecedenceConstraint contrainte1 = new PrecedenceConstraint(act1,act2);
-      PrecedenceConstraint contrainte2 = new PrecedenceConstraint(act3,act1);
+      PrecedenceConstraint contrainte2 = new PrecedenceConstraint(act3,act4);
       PrecedenceConstraint contrainte3 = new PrecedenceConstraint(act4,act1);
 
       ArrayList<PrecedenceConstraint> toutesContraintes= new ArrayList<> ();
@@ -66,11 +66,22 @@ public class projetpoo {
 
       String reprActivite = edt.getRepresentation();
 
-      System.out.println(edt.toString());
-      
+      ArrayList<Activity> listeActi = new ArrayList<>();
+      listeActi.add(act1);
+      listeActi.add(act2);
+      listeActi.add(act3);
+      listeActi.add(act4);
+
+      /*System.out.println(edt.toString());
+
       System.out.println(reprActivite);
 
-      System.out.println(edt.satisfies(toutesContraintes));
+      System.out.println(edt.satisfies(toutesContraintes));*/
+
+      Schedule edtTrie = new Schedule();
+      edtTrie.computeSchedule(listeActi,toutesContraintes);
+
+      System.out.println(edtTrie);
 
 
     }

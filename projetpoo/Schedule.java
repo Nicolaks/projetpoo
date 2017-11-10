@@ -101,12 +101,32 @@ public class Schedule {
      GregorianCalendar date = new GregorianCalendar(2017,10,27,8,0);
 
 
-     while (activites.size() != 0) {
-       next(activites,contraintes,[]);
+     /*
+
+     - Parcourir la liste des activitées si un activites est "libre" la mettre en première (pas de contrainte).
+     - Stocker les activitées qui on comme contrainte l'activité de la liste juste avant.
+     - Affiche dans l'odre.
+
+     */
+     int taille=activites.size();
+     ArrayList<Activity> reste = new ArrayList<Activity> (activites);
+     ArrayList<Activity> tableau = new ArrayList<Activity>();
+
+     while (!reste.isEmpty()) {
+        Activity nextAct = Schedule.next(reste,contraintes,tableau);
+
+        tableau.add(nextAct);
+        reste.remove(nextAct);
      }
-     for (Activity i : activites) {
-       edt.addSchedule(activites,date+activites.getDuree(i));
+     for (Activity i : tableau) {
+       if (i==0){
+         edt.addSchedule(i,date);
+       }
+       date.add(GregorianCalendar.MINUTE, i.getDuree());
+       edt.addSchedule(i,date);
+       System.out.println(edt);
      }
+     System.out.println(edt);
      return edt;
    }
 
