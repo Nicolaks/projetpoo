@@ -21,6 +21,14 @@ public class Schedule {
     return this.edt;
   }
 
+  public HashMap getEdt(){
+    return this.edt;
+  }
+
+  public GregorianCalendar getDateForActivity(Activity a){
+    return this.edt.get(a);
+  }
+
   public String getRepresentation() {
     String res="";
     for (Activity keys : this.edt.keySet()) {

@@ -2,19 +2,11 @@ package projetpoo;
 
 import java.util.GregorianCalendar;
 
-public class PrecedenceConstraint {//Représente des contraintes de précédence, first avant second
-
-  Activity first;
-  Activity second;
+public class PrecedenceConstraint extends BinaryConstraint {//Représente des contraintes de précédence, first avant second
 
   public PrecedenceConstraint (Activity first,Activity second) {
-
-    this.first=first;
-    this.second=second;
-
+    super(first, second);
   }
-
-
 
   public boolean isSatisfied (GregorianCalendar date1, GregorianCalendar date2) {
 
@@ -35,14 +27,6 @@ public class PrecedenceConstraint {//Représente des contraintes de précédence
     int compare =  date2.compareTo(finDate1) ;
 
     return (compare >= 0);
-  }
-
-  public int getFirst () {
-    return first.getDuree();
-  }
-
-  public int getSecond () {
-    return second.getDuree();
   }
 
 }
