@@ -16,7 +16,6 @@ public class MeetConstraint extends BinaryConstraint {
   }
 
   public boolean isSatisfied (GregorianCalendar date1, GregorianCalendar date2) {
-
     int dureeHeure=0;
     int saveDuree = first.getDuree();
     int dureeMinutes = first.getDuree();
@@ -34,5 +33,4 @@ public class MeetConstraint extends BinaryConstraint {
 
     return (compare == 0);
   }
-
 }

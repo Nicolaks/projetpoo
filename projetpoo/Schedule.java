@@ -50,7 +50,6 @@ public class Schedule {
     return true;
   }
 
-
   private ArrayList<Activity> getSortedActivities(){
     Set<Activity> set = this.edt.keySet();
 
@@ -86,8 +85,6 @@ public class Schedule {
     return res;
   }
 
-
-
    private static Activity next (ArrayList<Activity> activites, ArrayList<PrecedenceConstraint> contraintes,ArrayList<Activity> scheduled) {
 
      for (Activity i : activites) {
@@ -105,7 +102,6 @@ public class Schedule {
      throw new NoSuchElementException("pas possible");
    }
 
-
    public static Schedule computeSchedule(ArrayList<Activity> activites, ArrayList<PrecedenceConstraint> contraintes) {
      Schedule edt = new Schedule();
      GregorianCalendar date = new GregorianCalendar(2017,10,27,8,0);
@@ -118,13 +114,12 @@ public class Schedule {
         tableau.add(nextAct);
         reste.remove(nextAct);
      }
+
      for (Activity i : tableau) {
        GregorianCalendar newDate = (GregorianCalendar) date.clone();
        edt.addSchedule(i,newDate);
        date.add(GregorianCalendar.MINUTE, i.getDuree());
-
      }
      return edt;
    }
-
 }

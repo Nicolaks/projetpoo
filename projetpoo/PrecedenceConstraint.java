@@ -9,7 +9,6 @@ public class PrecedenceConstraint extends BinaryConstraint {//Représente des co
   }
 
   public boolean isSatisfied (GregorianCalendar date1, GregorianCalendar date2) {
-
     int dureeHeure=0;//initialise la duree qui sert a determiner le nombre d'heure(s) du ip1
     int saveDuree = first.getDuree();
     int dureeMinutes = first.getDuree();//nb de minutes - les heures (toujours inferieure à 60)
@@ -25,8 +24,6 @@ public class PrecedenceConstraint extends BinaryConstraint {//Représente des co
   //  	VERIFICATION
 
     int compare =  date2.compareTo(finDate1) ;
-
     return (compare >= 0);
   }
-
 }

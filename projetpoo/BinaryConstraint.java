@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class BinaryConstraint{
-
+  
   protected Activity first;
   protected Activity second;
 
@@ -34,5 +34,4 @@ public abstract class BinaryConstraint{
     GregorianCalendar date2 = edt.getDateForActivity(this.second);
     return isSatisfied(date1,date2);
   }
-
 }
