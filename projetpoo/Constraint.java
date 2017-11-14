@@ -13,6 +13,7 @@ public interface Constraint {//Interface Constraint
 
   /*Je ne sais pas si c'est la bonne méthode pour le isSatisfied*/
   public abstract boolean isSatisfied(Schedule edtConstraint);
-
+  /*Il faut maintenant modifier les classes de contraintes déjà écrites
+  pour qu'elles implémentent l'interface Constraint.*/
 
 }
