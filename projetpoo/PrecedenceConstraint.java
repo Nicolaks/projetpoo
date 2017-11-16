@@ -2,7 +2,7 @@ package projetpoo;
 
 import java.util.GregorianCalendar;
 
-public class PrecedenceConstraint extends BinaryConstraint {//Représente des contraintes de précédence, first avant second
+public class PrecedenceConstraint extends BinaryConstraint implements Constraint {//Représente des contraintes de précédence, first avant second
 
   public PrecedenceConstraint (Activity first,Activity second) {
     super(first, second);

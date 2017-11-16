@@ -71,6 +71,11 @@ public class projetpoo {
     listeContrainte.add(contrainte1);
     listeContrainte.add(contrainte2);
 
+    MaxSpanConstraint msc = new MaxSpanConstraint();
+    msc =  MaxSpanConstraint(ensemble,40);
+
+    System.out.println(msc);
+
     ArrayList<PrecedenceConstraint> contraintePrec = new ArrayList<PrecedenceConstraint> ();
     for (BinaryConstraint contrainte : listeContrainte) {
       if ( contrainte instanceof PrecedenceConstraint ) {

@@ -9,16 +9,32 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class MaxSpanConstraint implements Constraint{
+public abstract class MaxSpanConstraint implements Constraint {
 
 
-/*
-Il faut représenter les contraintes stipulant que pour un ensemble d'activités
-données, il ne doit pas s'écouler plus d'un nombre donné de minutes entre le
-moment où la première commence et celui où la dernière se termine.
-*/
 
-  public MaxSpanConstraint () {
+
+  ArrayList<Activity> listActivite = new ArrayList<> ();
+  int dureeTotal;
+
+
+  public MaxSpanConstraint (ArrayList<Activity> listActivite,int dureeTotal) {
+    this.listActivite = listActivite;
+    this.dureeTotal = dureeTotal;
+  }
+
+  public boolean isSatisfied() {
+    int dureeTouteAct = 0;
+    for (Activity i : listActivite) {
+      dureeTouteAct += i.getDuree();
+    }
+
+    if (dureeTouteAct <= dureeTotal) {
+      return true;
+    } else {
+      System.out.println("Les contraintes de durée maximum pour plusieurs activités ne peuvent pas être satisfaites");
+      return false;
+    }
 
   }
 

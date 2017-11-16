@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MeetConstraint extends BinaryConstraint {
+public class MeetConstraint extends BinaryConstraint implements Constraint {
 
   public MeetConstraint (Activity first,Activity second) {
     super(first, second);

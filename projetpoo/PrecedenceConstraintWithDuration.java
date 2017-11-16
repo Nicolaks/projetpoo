@@ -3,7 +3,7 @@ package projetpoo;
 import java.util.GregorianCalendar;
 
 
-public class PrecedenceConstraintWithDuration extends PrecedenceConstraint {
+public class PrecedenceConstraintWithDuration extends PrecedenceConstraint implements Constraint {
 
 	private int durMin;
 	private int durMAx;
