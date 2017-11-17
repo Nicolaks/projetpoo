@@ -1,10 +1,6 @@
-reveil _before_ petit_dej
-reveil _before_ cafe
-petit_dej _before_ bus
-cafe _before_ bus
-petit_dej _before_ dents
-cafe _before_ dents
-cafe _before_ douche
-douche _before_ bus
-dents _before_ bus
-reveil _before_ bus
+reveil = Me réveiller _lasting_ 0
+petit_dej = Prendre un petit déjeuner _lasting_ 30
+cafe = Boire un café _lasting_ 5
+douche = Prendre une douche _lasting_ 10
+dents = Me brosser les dents _lasting_ 5
+bus = Prendre le bus _lasting_ 25

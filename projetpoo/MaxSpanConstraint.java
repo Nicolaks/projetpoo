@@ -31,7 +31,6 @@ public class MaxSpanConstraint implements Constraint {
     if (dureeTouteAct <= dureeTotal) {
       return true;
     } else {
-      System.out.println("Les contraintes de durée maximum pour plusieurs activités ne peuvent pas être satisfaites");
       return false;
     }
 
