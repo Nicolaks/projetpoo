@@ -10,9 +10,5 @@ import java.util.HashMap;
 import java.util.Map;
 
 public interface Constraint {//Interface Constraint
-
-
   public boolean isSatisfied(Schedule edtConstraint);
-
-
 }

@@ -33,7 +33,5 @@ public class MaxSpanConstraint implements Constraint {
     } else {
       return false;
     }
-
   }
-
 }

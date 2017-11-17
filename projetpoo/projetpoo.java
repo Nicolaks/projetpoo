@@ -29,10 +29,10 @@ public class projetpoo {
     // toutesContraintes.add(contrainte2);
     // toutesContraintes.add(contrainte3);
     //
-    edt.addSchedule(act1,date1);
-    edt.addSchedule(act2,date2);
-    edt.addSchedule(act3,date3);
-    edt.addSchedule(act4,date4);
+    //edt.addSchedule(act1,date1);
+    //edt.addSchedule(act2,date2);
+    //edt.addSchedule(act3,date3);
+    //edt.addSchedule(act4,date4);
     //
     // String reprActivite = edt.getRepresentation();
     //
