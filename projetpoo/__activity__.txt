@@ -1,0 +1,10 @@
+reveil _before_ petit_dej
+reveil _before_ cafe
+petit_dej _before_ bus
+cafe _before_ bus
+petit_dej _before_ dents
+cafe _before_ dents
+cafe _before_ douche
+douche _before_ bus
+dents _before_ bus
+reveil _before_ bus
