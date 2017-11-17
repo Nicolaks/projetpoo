@@ -8,7 +8,7 @@ import java.util.GregorianCalendar;//Importations de GregorianCalendar
 public class projetpoo {
 
   public static void main (String [] args) {//Fonction principale
-    // Schedule edt = new Schedule();
+    Schedule edt = new Schedule();
     //
     Activity act1 = new Activity("POO",40);
     Activity act2 = new Activity("TE",60);
@@ -29,10 +29,10 @@ public class projetpoo {
     // toutesContraintes.add(contrainte2);
     // toutesContraintes.add(contrainte3);
     //
-    // edt.addSchedule(act1,date1);
-    // edt.addSchedule(act2,date2);
-    // edt.addSchedule(act3,date3);
-    // edt.addSchedule(act4,date4);
+    edt.addSchedule(act1,date1);
+    edt.addSchedule(act2,date2);
+    edt.addSchedule(act3,date3);
+    edt.addSchedule(act4,date4);
     //
     // String reprActivite = edt.getRepresentation();
     //
@@ -71,10 +71,10 @@ public class projetpoo {
     listeContrainte.add(contrainte1);
     listeContrainte.add(contrainte2);
 
-    MaxSpanConstraint msc = new MaxSpanConstraint();
-    msc =  MaxSpanConstraint(ensemble,40);
 
-    System.out.println(msc);
+    MaxSpanConstraint msc = new MaxSpanConstraint(ensemble,40);
+    System.out.println(msc.isSatisfied(edt));
+    //msc.isSatisfied(edt);
 
     ArrayList<PrecedenceConstraint> contraintePrec = new ArrayList<PrecedenceConstraint> ();
     for (BinaryConstraint contrainte : listeContrainte) {

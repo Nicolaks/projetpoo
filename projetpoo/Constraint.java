@@ -12,7 +12,7 @@ import java.util.Map;
 public interface Constraint {//Interface Constraint
 
 
-  public abstract boolean isSatisfied(Schedule edtConstraint);
+  public boolean isSatisfied(Schedule edtConstraint);
 
 
 }

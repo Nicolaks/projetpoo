@@ -9,9 +9,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class MaxSpanConstraint implements Constraint {
-
-
+public class MaxSpanConstraint implements Constraint {
 
 
   ArrayList<Activity> listActivite = new ArrayList<> ();
@@ -23,7 +21,8 @@ public abstract class MaxSpanConstraint implements Constraint {
     this.dureeTotal = dureeTotal;
   }
 
-  public boolean isSatisfied() {
+  @Override
+  public boolean isSatisfied(Schedule edt) {
     int dureeTouteAct = 0;
     for (Activity i : listActivite) {
       dureeTouteAct += i.getDuree();
