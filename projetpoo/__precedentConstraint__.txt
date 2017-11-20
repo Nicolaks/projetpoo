@@ -8,3 +8,4 @@ cafe _before_ douche
 douche _before_ bus
 dents _before_ bus
 reveil _before_ bus
+bus _before_ cours

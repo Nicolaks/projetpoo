@@ -9,7 +9,18 @@ public class main {
 
   public static void main (String [] args)throws IOException  {//Fonction principale
     Map<String,Activity> mapAct = readActivities("projetpoo/__activity__.txt");
-    PrecConsCollec("projetpoo/__precedentConstraint__.txt",mapAct);
+    Collection<PrecedenceConstraint> collecPCons = PrecConsCollec("projetpoo/__precedentConstraint__.txt",mapAct);
+
+
+
+    ArrayList<Activity> activites = new ArrayList<>();
+    for (String name : mapAct.keySet()) {
+      activites.add(mapAct.get(name));
+    }
+
+    Schedule edt = Schedule.computeSchedule(activites,collecPCons);
+    System.out.println(edt);
+
   }
 
   public static Map<String, Activity> readActivities (String filename) throws IOException {
@@ -35,22 +46,20 @@ public class main {
   public static Collection<PrecedenceConstraint> PrecConsCollec (String filename, Map<String,Activity> mapAct) throws IOException {
 
 
-    //il faut
     BufferedReader fileReader = new BufferedReader (new FileReader (filename));
 
     Collection<String> validIds = mapAct.keySet();
 
     OrderedPairReader constraintReader = new OrderedPairReader(fileReader,validIds,"_before_");
 
-    //Collection<Activity> listActivity = mapAct.getValue();
-
     Collection<PrecedenceConstraint> constraintCollec = new ArrayList<PrecedenceConstraint>();
 
-    for (OrderedPair<String,String> pair : constraintReader.readAll()) {//Il faut des activités pas des string.
+    for (OrderedPair<String,String> pair : constraintReader.readAll()) {
       PrecedenceConstraint constraint = new PrecedenceConstraint(mapAct.get(pair.getFirst()),mapAct.get(pair.getSecond()));
       constraintCollec.add(constraint);
     }
 
+    System.out.println("Les contraintes de précédence sont satisfaites");
     return constraintCollec;
 
   }

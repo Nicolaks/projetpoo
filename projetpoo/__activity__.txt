@@ -4,3 +4,4 @@ cafe = Boire un café _lasting_ 5
 douche = Prendre une douche _lasting_ 10
 dents = Me brosser les dents _lasting_ 5
 bus = Prendre le bus _lasting_ 25
+cours = Aller en cours _lasting_ 30

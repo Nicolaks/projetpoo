@@ -1,12 +1,7 @@
 package projetpoo;
 
-import java.util.ArrayList;
-import java.util.Set;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.GregorianCalendar;
-import java.util.NoSuchElementException;
+import java.util.*;
+
 
 public class Schedule {
 
@@ -41,7 +36,7 @@ public class Schedule {
     return res;
   }
 
-  public boolean satisfies (ArrayList<PrecedenceConstraint> toutesContraintes) {
+  public boolean satisfies (Collection<PrecedenceConstraint> toutesContraintes) {
     for (PrecedenceConstraint contrainte: toutesContraintes) {
       if (!contrainte.isSatisfied(this.edt.get(contrainte.first), this.edt.get(contrainte.second))) {
         return false;
@@ -85,7 +80,7 @@ public class Schedule {
     return res;
   }
 
-   private static Activity next (ArrayList<Activity> activites, ArrayList<PrecedenceConstraint> contraintes,ArrayList<Activity> scheduled) {
+   private static Activity next (ArrayList<Activity> activites, Collection<PrecedenceConstraint> contraintes,ArrayList<Activity> scheduled) {
 
      for (Activity i : activites) {
        boolean ok = true;
@@ -102,7 +97,7 @@ public class Schedule {
      throw new NoSuchElementException("pas possible");
    }
 
-   public static Schedule computeSchedule(ArrayList<Activity> activites, ArrayList<PrecedenceConstraint> contraintes) {
+   public static Schedule computeSchedule(ArrayList<Activity> activites, Collection<PrecedenceConstraint> contraintes) {
      Schedule edt = new Schedule();
      GregorianCalendar date = new GregorianCalendar(2017,10,27,8,0);
      ArrayList<Activity> reste = new ArrayList<Activity> (activites);
