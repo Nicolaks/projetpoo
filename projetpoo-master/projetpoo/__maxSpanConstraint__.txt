@@ -1,0 +1,3 @@
+petit_dej, cafe _within_ 30
+douche, dents _within_ 20
+petit_dej, cafe, douche, dents _within_ 60
