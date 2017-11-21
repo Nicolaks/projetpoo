@@ -11,6 +11,9 @@ public class main {
     Map<String,Activity> mapAct = readActivities("projetpoo/__activity__.txt");
     Collection<PrecedenceConstraint> collecPCons = PrecConsCollec("projetpoo/__precedentConstraint__.txt",mapAct);
 
+    Collection<MeetConstraint> collecMeetCons = meetConsCollec("projetpoo/__meetConstraint__.txt",mapAct);
+    Collection<MaxSpanConstraint> collecMaxSpan = maxSpanCollec("projetpoo/__maxSpanConstraint__.txt",mapAct);
+
 
 
     ArrayList<Activity> activites = new ArrayList<>();
@@ -18,8 +21,12 @@ public class main {
       activites.add(mapAct.get(name));
     }
 
+    System.out.println("Emploi du temps trouvé avec les contraintes de précédence fournies:");
+
     Schedule edt = Schedule.computeSchedule(activites,collecPCons);
     System.out.println(edt);
+
+    System.out.println("L'emploi du temps ne satisfait pas toutes les contraintes");
 
   }
 
@@ -58,9 +65,55 @@ public class main {
       PrecedenceConstraint constraint = new PrecedenceConstraint(mapAct.get(pair.getFirst()),mapAct.get(pair.getSecond()));
       constraintCollec.add(constraint);
     }
-
-    System.out.println("Les contraintes de précédence sont satisfaites");
     return constraintCollec;
+  }
 
+  public static Collection<MeetConstraint> meetConsCollec (String filename, Map<String,Activity> mapAct) throws IOException {
+
+    BufferedReader fileReader = new BufferedReader (new FileReader (filename));
+
+    Collection<String> validIds = mapAct.keySet();
+
+    OrderedPairReader constraintReader = new OrderedPairReader(fileReader,validIds,"_meets_");
+
+    Collection<MeetConstraint> collecMeet = new ArrayList<MeetConstraint>();
+
+    for (OrderedPair<String,String> pair : constraintReader.readAll()) {
+      MeetConstraint constraint = new MeetConstraint(mapAct.get(pair.getFirst()),mapAct.get(pair.getSecond()));
+      collecMeet.add(constraint);
+    }
+    return collecMeet;
+  }
+
+
+
+  public static Collection<MaxSpanConstraint> maxSpanCollec (String filename, Map<String, Activity> mapAct) throws IOException, IllegalArgumentException {
+
+    BufferedReader fileReader = new BufferedReader (new FileReader (filename));
+
+    Collection<String> validIds = mapAct.keySet();
+
+    StringsStringReader constraintReader = new StringsStringReader(fileReader,validIds,",","_within_");
+
+    Collection<MaxSpanConstraint> collecMaxSpan = new ArrayList<MaxSpanConstraint>();
+
+    for (OrderedPair<List<String>,String> pair : constraintReader.readAll()) {
+      //il faut récupérer dans la liste List<String> chaque Strring
+      ArrayList<Activity> withinAct = new ArrayList<Activity>();
+      withinAct.add(mapAct.get(pair.getFirst()));
+      withinAct.add(mapAct.get(pair.getSecond()));
+      System.out.println(mapAct.get(p);
+
+      int dureeTotale = 0;
+
+      for (Activity act : withinAct) {
+        dureeTotale += act.getDuree();
+      }
+
+      MaxSpanConstraint constraint = new MaxSpanConstraint(withinAct,dureeTotale);
+      collecMaxSpan.add(constraint);
+    }
+    System.out.println(collecMaxSpan);
+    return collecMaxSpan;
   }
 }
