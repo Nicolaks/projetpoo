@@ -102,7 +102,7 @@ public class main {
       ArrayList<Activity> withinAct = new ArrayList<Activity>();
       withinAct.add(mapAct.get(pair.getFirst()));
       withinAct.add(mapAct.get(pair.getSecond()));
-      System.out.println(mapAct.get(p);
+      //System.out.println(mapAct);
 
       int dureeTotale = 0;
 
