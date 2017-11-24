@@ -46,11 +46,13 @@ public abstract class BinaryConstraint implements Constraint {
   }
 
   /**
-     * Classe isSatisfied abstraite qui vérifie si les activités sont compatibles.
+     * Classe isSatisfied abstraite de type booléen, qui vérifie si les activités sont compatibles.
      * @param date1
      * Prend en premier paramètre un GregorianCalendar.
      * @param date2
      * Prend en second paramètre un autre GregorianCalendar.
+     * @return
+     * Et retourne un booléen.
      */
 
   public abstract boolean isSatisfied(GregorianCalendar date1,GregorianCalendar date2);
