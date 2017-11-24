@@ -1,5 +1,7 @@
 package projetpoo;
-
+/**
+   * Lance la class MeetConstraint qui implémente l'interface Constraint.
+   */
 import java.util.GregorianCalendar;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -8,13 +10,31 @@ import java.util.Set;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+   * Lance la class MaxSpanConstraint qui implémente l'interface Constraint, et qui hérite de la classe BinaryConstraint.
+   */
 public class MeetConstraint extends BinaryConstraint implements Constraint {
+  /**
+     * Utilise la méthode super(), car la class hérite de BinaryConstraint.
+     * @param first
+     * Prend comme premier paramètre une activité.
+     * @param second
+     * Prend en second paramètre une activité.
+     *
+     */
 
   public MeetConstraint (Activity first,Activity second) {
     super(first, second);
   }
-
+  /**
+     * Lance la class isSatisfied qui vérifie si deux GregorianCalendar sont compatibles.
+     * @return
+     * Retourne un booléen.
+     * @param date1
+     * Prend comme premier paramètre un GregorianCalendar.
+     * @param date2
+     * Prend comme second paramètre un autre GregorianCalendar.
+     */
   public boolean isSatisfied (GregorianCalendar date1, GregorianCalendar date2) {
     int dureeHeure=0;
     int saveDuree = first.getDuree();
