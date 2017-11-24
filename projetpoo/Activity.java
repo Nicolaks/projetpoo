@@ -10,8 +10,8 @@ import java.util.GregorianCalendar;
 
 public class Activity {
 
-  private String descr;//Description du crénaux
-  private int duree;//En minute
+  private String descr;
+  private int duree;
 
   /**
    * Le constructeur prend en entrée une description et une durée.
