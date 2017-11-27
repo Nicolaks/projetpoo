@@ -1,0 +1,1 @@
+javadoc -encoding utf8 -docencoding utf8 -charset utf8 -d repertoirejavaDoc -author projetpoo/*.java
