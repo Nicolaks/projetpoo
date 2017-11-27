@@ -12,7 +12,7 @@ public class main {
     Collection<PrecedenceConstraint> collecPCons = PrecConsCollec("projetpoo/__precedentConstraint__.txt",mapAct);
 
     Collection<MeetConstraint> collecMeetCons = meetConsCollec("projetpoo/__meetConstraint__.txt",mapAct);
-    Collection<MaxSpanConstraint> collecMaxSpan = maxSpanCollec("projetpoo/__maxSpanConstraint__.txt",mapAct);
+    Collection<MaxSpanConstraint> collecMaxSpan = maxSpanCollec("projetpoo/__maxSpanConstraint__.txt",mapAct); //inverse l'ordre des deuwx premières activités si la première est à 0
 
 
 
@@ -98,11 +98,19 @@ public class main {
     Collection<MaxSpanConstraint> collecMaxSpan = new ArrayList<MaxSpanConstraint>();
 
     for (OrderedPair<List<String>,String> pair : constraintReader.readAll()) {
-      //il faut récupérer dans la liste List<String> chaque Strring
+      List<String> stringList = pair.getFirst();
       ArrayList<Activity> withinAct = new ArrayList<Activity>();
-      withinAct.add(mapAct.get(pair.getFirst()));
-      withinAct.add(mapAct.get(pair.getSecond()));
-      //System.out.println(mapAct);
+
+      for (int i = 0; i < stringList.size(); i++) {
+
+        for (Map.Entry<String,Activity> mapActEntry : mapAct.entrySet()) {
+          String mapActKey = mapActEntry.getKey();
+          Activity mapActValue = mapActEntry.getValue();
+          if (mapActKey.equals(stringList.get(i))) {
+            withinAct.add(mapAct.get(mapActKey));
+          }
+        }
+      }
 
       int dureeTotale = 0;
 
@@ -113,7 +121,6 @@ public class main {
       MaxSpanConstraint constraint = new MaxSpanConstraint(withinAct,dureeTotale);
       collecMaxSpan.add(constraint);
     }
-    System.out.println(collecMaxSpan);
     return collecMaxSpan;
   }
 }
