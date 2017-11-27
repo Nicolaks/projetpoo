@@ -2,26 +2,66 @@ package projetpoo;
 
 import java.util.GregorianCalendar;
 
-
+/**
+ * Class PrecedenceConstraintWithDuration
+ */
 public class PrecedenceConstraintWithDuration extends PrecedenceConstraint implements Constraint {
 
 	private int durMin;
-	private int durMAx;
-
+	private int durMax;
+	
+/**
+ * Constructeur PrecedenceConstraintWithDuration
+ * @param first
+ * 		first est une activité de type Activity 
+ *
+ * @param second
+ * 		second est une activité de type Activity
+ *
+ * @param durMin
+ * 		durMin est une durée de type int
+ *
+ * @param durMax
+ * 		durMax est une durée de type int
+ *
+ * @see PrecedenceConstraintWithDuration#first
+ * @see PrecedenceConstraintWithDuration#second 
+ */
 
 	public PrecedenceConstraintWithDuration (Activity first,Activity second,int durMin, int durMax) {
 
 		super( first, second);//Permet de recuperer les attributs de la methode heritee
 
 		this.durMin = durMin;
-		this.durMAx = durMax;
+		this.durMax = durMax;
 
 	}
 
+/**
+ * @return
+ * Méthode qui retourne durMin et durMax 
+*/
 	public String getPrec(){//Retourne juste durMin et durMax
-		return this.durMin + " " + this.durMAx;
+		return this.durMin + " " + this.durMax;
 	}
 
+/**
+ * Vérifie si PrecedenceConstraintWithDuration est satisfiée
+ * 
+ * @param date1
+ * 		date1 est une variable de type GregorianCalendar
+ 
+ * @param date2
+ * 		date2 est une variable de type GregorianCalendar
+ * 
+ * @param durMin
+ * 		durMin est une durée de type int
+ *
+ * @param durMax
+ * 		durMax est une durée de type int
+ *
+ * @return Un booléen qui défini si la contrainte de précedence est validée
+ */
 	public boolean isSatisfied (GregorianCalendar date1, GregorianCalendar date2,int durMin, int durMax){
 		int dureeHeure = 0;//initialise la duree qui sert a determiner le nombre d'heure(s) du ip1
 	  int saveDuree = first.getDuree();
