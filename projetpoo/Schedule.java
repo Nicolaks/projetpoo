@@ -2,102 +2,106 @@ package projetpoo;
 
 import java.util.*;
 
-	
+
 /**
+ * @author
+ * Aubry Nicolas, Dimitri Chagneux, Sami Zaizafoun, Martin Jacqueline
+ */
+ /**
  * Class Schedule
  */
 public class Schedule {
-	
+
 /**
  * La HashMap contenant les Activity en clés et les date sous format GregorianCalendar pour les valeurs
  * @see Activity
  * @see GregorianCalendar
  */
   private HashMap<Activity, GregorianCalendar> edt;
-	
+
 /**
  * Constructeur Schedule
- * 
+ *
  * <p>Lors de la construction du Schedule il intergre edt, l'emploi du temps de type HashMap.</p>
- * 
+ *
  * @see Schedule#addSchedule
  * @see Schedule#getEdt
  * @see Schedule#getDateForActivity
- * @see Schedule#getRepresentation 
+ * @see Schedule#getRepresentation
  * @see Schedule#satisfies
  * @see Schedule#getSortedActivities
  * @see Schedule#affichageHeureMinute
  * @see Schedule#toString
  * @see Schedule#next
  * @see Schedule#computeSchedule
- * 
+ *
  */
   public Schedule (){
     this.edt = new HashMap<> ();
   }
-	
-/** 
+
+/**
  * Méthode addSchedule
- * 
+ *
  * <p>Ajoute dans le Schedule une clé Activity et sa valeur GregorianCalendar qui sont l'activité ajoutée  et sa date de début</p>
- * 
+ *
  * @see Activity
  * @see GregorianCalendar
- * 
+ *
  * @param a
  * 		variable de type Activity a asscoier avec une date
  * @param greg
  * 		variable de type GregorianCalendar a associer avec une activité
- * 
+ *
  * @return edt
- * 		retourne le Schedule edt (modifié) 
- * 
+ * 		retourne le Schedule edt (modifié)
+ *
  */
   public HashMap addSchedule (Activity a, GregorianCalendar greg ){
     this.edt.put(a,greg);
     return this.edt;
   }
-	
+
 /**
  * Méthode getEdt
- * 
+ *
  * <p>Permet d'obtenir l' edt de type Schedule</p>
- * 
+ *
  * @return edt
  * 		retourne le Schedule contenant l'ensemble des activités (Activity) et de leur date associée (GregorianCalendar)
- * 
+ *
  */
   public HashMap getEdt(){
     return this.edt;
   }
-	
+
 /**
  * Méthode getDateForActivity
- * 
+ *
  * <p>Permet d'obtenir la date (GregorianCalendar) d'une Activité (Activity) donnée</p>
- * 
+ *
  * @see Activity
  * @see GregorianCalendar
- * 
+ *
  * @param a
  * 		variable de type Activity
- 
+
  *  @return GregorianCalendar
  * 		retourne un GregorianCalendar, date associé à l' Activity prise en paramètre
- * 
+ *
  */
   public GregorianCalendar getDateForActivity(Activity a){
     return this.edt.get(a);
   }
-	
+
 /**
  * Méthode getRepresentation
- * 
+ *
  * <p>Donne une représentation lisible de l'emploi du temps edt, en ne renvoyant que, pour chaque activité, leur nom, l'année, le mois, le jour, l'heure et la minute de celle ci</p>
- * 
+ *
  * @return res
  *		variable de type String contenant tout le teste à afficher
- * 
+ *
  */
   public String getRepresentation() {
     String res="";
@@ -110,15 +114,15 @@ public class Schedule {
     }
     return res;
   }
-	
+
 /**
  * Méthode satisfies
- * 
+ *
  * <p>verifie si les contraintes sont bien validées et renvoie true si c'est le cas, false dans le cas contraire</p>
- * 
+ *
  * @return "true/false"
  *		retourne un boolean
- * 
+ *
  */
   public boolean satisfies (Collection<PrecedenceConstraint> toutesContraintes) {
     for (PrecedenceConstraint contrainte: toutesContraintes) {
@@ -128,15 +132,15 @@ public class Schedule {
     }
     return true;
   }
-	
+
 /**
  * Méthode getSortedActivities
- * 
+ *
  * <p>trie les Activités dans leur ordre chronologique par rapport à leur date</p>
- * 
+ *
  * @return listeAct
- * 		retourne une ArrayList contenant toutes les activités (Activity) triées 
- * 
+ * 		retourne une ArrayList contenant toutes les activités (Activity) triées
+ *
  */
   private ArrayList<Activity> getSortedActivities(){
     Set<Activity> set = this.edt.keySet();
@@ -156,46 +160,46 @@ public class Schedule {
   	}
   	return listeAct;
   }
-	
+
 /**
- * 
- * 
- * 
- * 
- * 
- * 
+ *
+ *
+ *
+ *
+ *
+ *
  */
   private String affichageHeureMinute (GregorianCalendar cal) {
     return cal.get(GregorianCalendar.HOUR_OF_DAY)+"";
   }
-	
+
 /**
- * 
- * 
- * 
- * 
- * 
- * 
+ *
+ *
+ *
+ *
+ *
+ *
  */
   public String toString () {
 
     ArrayList<Activity> liste = this.getSortedActivities();
     int n = liste.size();
 
-    String res = "Emploi du temps : \n";
+    String res = "";
     for (Activity i : liste) {
       res += i.getAct()+" : "+this.edt.get(i).get(GregorianCalendar.HOUR_OF_DAY)+"h"+this.edt.get(i).get(GregorianCalendar.MINUTE)+"\n";
     }
     return res;
   }
-	
+
 /**
- * 
- * 
- * 
- * 
- * 
- * 
+ *
+ *
+ *
+ *
+ *
+ *
  */
    private static Activity next (ArrayList<Activity> activites, Collection<PrecedenceConstraint> contraintes,ArrayList<Activity> scheduled) {
 
@@ -213,14 +217,14 @@ public class Schedule {
      }
      throw new NoSuchElementException("pas possible");
    }
-	
+
 /**
- * 
- * 
- * 
- * 
- * 
- * 
+ *
+ *
+ *
+ *
+ *
+ *
  */
    public static Schedule computeSchedule(ArrayList<Activity> activites, Collection<PrecedenceConstraint> contraintes) {
      Schedule edt = new Schedule();

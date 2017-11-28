@@ -1,5 +1,7 @@
 package projetpoo;
 /**
+   * @author
+   * Aubry Nicolas, Dimitri Chagneux, Sami Zaizafoun, Martin Jacqueline
    * Lance la class MeetConstraint qui implémente l'interface Constraint.
    */
 import java.util.GregorianCalendar;

@@ -1,5 +1,7 @@
 package projetpoo;
 /**
+ * @author
+ * Aubry Nicolas, Dimitri Chagneux, Sami Zaizafoun, Martin Jacqueline
  * La class BinaryConstraint
  */
 import java.util.ArrayList;

@@ -3,29 +3,33 @@ package projetpoo;
 import java.util.GregorianCalendar;
 
 /**
+ * @author
+ * Aubry Nicolas, Dimitri Chagneux, Sami Zaizafoun, Martin Jacqueline
+ */
+ /**
  * Class PrecedenceConstraintWithDuration
  */
 public class PrecedenceConstraintWithDuration extends PrecedenceConstraint implements Constraint {
 
 	private int durMin;
 	private int durMax;
-	
+
 /**
- * Constructeur PrecedenceConstraintWithDuration
+ * Constructeur PrecedenceConstraintWithDuration.
  * @param first
- * 		first est une activité de type Activity 
+ * 		first est une activité de type Activity .
  *
  * @param second
- * 		second est une activité de type Activity
+ * 		second est une activité de type Activity.
  *
  * @param durMin
- * 		durMin est une durée de type int
+ * 		durMin est une durée de type int.
  *
  * @param durMax
- * 		durMax est une durée de type int
+ * 		durMax est une durée de type int.
  *
  * @see PrecedenceConstraintWithDuration#first
- * @see PrecedenceConstraintWithDuration#second 
+ * @see PrecedenceConstraintWithDuration#second
  */
 
 	public PrecedenceConstraintWithDuration (Activity first,Activity second,int durMin, int durMax) {
@@ -39,28 +43,28 @@ public class PrecedenceConstraintWithDuration extends PrecedenceConstraint imple
 
 /**
  * @return
- * Méthode qui retourne durMin et durMax 
+ * Méthode qui retourne durMin et durMax .
 */
 	public String getPrec(){//Retourne juste durMin et durMax
 		return this.durMin + " " + this.durMax;
 	}
 
 /**
- * Vérifie si PrecedenceConstraintWithDuration est satisfiée
- * 
+ * Vérifie si PrecedenceConstraintWithDuration est satisfiée.
+ *
  * @param date1
- * 		date1 est une variable de type GregorianCalendar
- 
+ * 		date1 est une variable de type GregorianCalendar.
+
  * @param date2
- * 		date2 est une variable de type GregorianCalendar
- * 
+ * 		date2 est une variable de type GregorianCalendar.
+ *
  * @param durMin
- * 		durMin est une durée de type int
+ * 		durMin est une durée de type int.
  *
  * @param durMax
- * 		durMax est une durée de type int
+ * 		durMax est une durée de type int.
  *
- * @return Un booléen qui défini si la contrainte de précedence est validée
+ * @return Un booléen qui défini si la contrainte de précedence est validée.
  */
 	public boolean isSatisfied (GregorianCalendar date1, GregorianCalendar date2,int durMin, int durMax){
 		int dureeHeure = 0;//initialise la duree qui sert a determiner le nombre d'heure(s) du ip1

@@ -5,14 +5,21 @@ import java.io.*;
 import scheduleio.*;
 import java.lang.*;
 
+/**
+ * @author
+ * Aubry Nicolas, Dimitri Chagneux, Sami Zaizafoun, Martin Jacqueline
+ * Class main
+ */
 public class main {
-
+/**
+ * Méthode Main du package
+ */
   public static void main (String [] args)throws IOException  {//Fonction principale
-    Map<String,Activity> mapAct = readActivities("projetpoo/__activity__.txt");
-    Collection<PrecedenceConstraint> collecPCons = PrecConsCollec("projetpoo/__precedentConstraint__.txt",mapAct);
+    Map<String,Activity> mapAct = readActivities("projetpoo/Activity_Constraint/__activity__.txt");
+    Collection<PrecedenceConstraint> collecPCons = PrecConsCollec("projetpoo/Activity_Constraint/__precedentConstraint__.txt",mapAct);
 
-    Collection<MeetConstraint> collecMeetCons = meetConsCollec("projetpoo/__meetConstraint__.txt",mapAct);
-    Collection<MaxSpanConstraint> collecMaxSpan = maxSpanCollec("projetpoo/__maxSpanConstraint__.txt",mapAct); //inverse l'ordre des deuwx premières activités si la première est à 0
+    Collection<MeetConstraint> collecMeetCons = meetConsCollec("projetpoo/Activity_Constraint/__meetConstraint__.txt",mapAct);
+    Collection<MaxSpanConstraint> collecMaxSpan = maxSpanCollec("projetpoo/Activity_Constraint/__maxSpanConstraint__.txt",mapAct); //inverse l'ordre des deuwx premières activités si la première est à 0
 
 
 
@@ -30,6 +37,16 @@ public class main {
 
   }
 
+
+ /**
+  * Méthode readActivities.
+  *
+  * @param filename
+  *		Le nom du fichier doit etre un String.
+  *
+  * @return
+  *		Retourne les clefs des identifiants donnés dans le fichier, et pour valeurs les instances d'activités correspondantes.
+ */
   public static Map<String, Activity> readActivities (String filename) throws IOException {
 
     BufferedReader fileReader = new BufferedReader (new FileReader (filename));
@@ -50,6 +67,18 @@ public class main {
     return mapActivity;
   }
 
+ /**
+  * Méthode PrecConsCollec.
+  *
+  * @param filename
+  *		Le nom du fichier doit etre un String.
+  *
+  * @param mapAct
+  *		L'identifiant et l'instance de l'activité.
+  *
+  * @return
+  *		Retourne une collection d'instances de la classe « PrecedenceConstraint ».
+ */
   public static Collection<PrecedenceConstraint> PrecConsCollec (String filename, Map<String,Activity> mapAct) throws IOException {
 
 
@@ -68,6 +97,18 @@ public class main {
     return constraintCollec;
   }
 
+ /**
+  * Méthode meetConsCollec.
+  *
+  * @param filename
+  *		Le nom du fichier doit etre un String.
+  *
+  * @param mapAct
+  *		L'identifiant et l'instance de l'activité.
+  *
+  * @return
+  *		Retourne une collection d'instances de la classe « MeetConstraint ».
+ */
   public static Collection<MeetConstraint> meetConsCollec (String filename, Map<String,Activity> mapAct) throws IOException {
 
     BufferedReader fileReader = new BufferedReader (new FileReader (filename));
@@ -86,7 +127,18 @@ public class main {
   }
 
 
-
+ /**
+  * Méthode maxSpanCollec.
+  *
+  * @param filename
+  *		Le nom du fichier doit etre un String.
+  *
+  * @param mapAct
+  *		L'identifiant et l'instance de l'activité.
+  *
+  * @return
+  *		Retourne une collection d'instances de la classe « MaxSpanConstraint ».
+ */
   public static Collection<MaxSpanConstraint> maxSpanCollec (String filename, Map<String, Activity> mapAct) throws IOException, IllegalArgumentException {
 
     BufferedReader fileReader = new BufferedReader (new FileReader (filename));
@@ -112,14 +164,10 @@ public class main {
         }
       }
 
-      int dureeTotale = 0;
-
-      for (Activity act : withinAct) {
-        dureeTotale += act.getDuree();
-      }
-
-      MaxSpanConstraint constraint = new MaxSpanConstraint(withinAct,dureeTotale);
+	  int duration = Integer.parseInt(pair.getSecond());
+      MaxSpanConstraint constraint = new MaxSpanConstraint(withinAct,duration);
       collecMaxSpan.add(constraint);
+
     }
     return collecMaxSpan;
   }
