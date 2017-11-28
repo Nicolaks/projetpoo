@@ -150,7 +150,7 @@ public class Schedule {
   	for ( int i=0 ; i<n ; i++) {
   		int min = i;
   		for ( int j=i+1 ; j<n ; j++) {
-  			if (this.edt.get(listeAct.get(j)).compareTo(this.edt.get(listeAct.get(min)))<0){
+  			if (this.edt.get(listeAct.get(j)).compareTo(this.edt.get(listeAct.get(min)))<=0){
   				min=j;
   			}
   		}
