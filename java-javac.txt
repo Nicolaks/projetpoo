@@ -1,0 +1,5 @@
+Windows:    javac -cp "projetpoo/scheduleio.jar;." projetpoo/*.java
+	    java -cp "projetpoo/scheduleio.jar;." projetpoo.main
+
+Linux:      javac -cp "projetpoo/scheduleio.jar:." projetpoo/*.java
+	    java -cp "projetpoo/scheduleio.jar:." projetpoo.main
