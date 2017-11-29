@@ -15,11 +15,12 @@ public class main {
  * Méthode Main du package
  */
   public static void main (String [] args)throws IOException  {//Fonction principale
-    Map<String,Activity> mapAct = readActivities("projetpoo/Activity_Constraint/__activity__.txt");
-    Collection<PrecedenceConstraint> collecPCons = PrecConsCollec("projetpoo/Activity_Constraint/__precedentConstraint__.txt",mapAct);
+    Map<String,Activity> mapAct = readActivities("projetpoo/data/" +/*__activity__.txt"*/args[0]);
+    Collection<PrecedenceConstraint> collecPCons = PrecConsCollec("projetpoo/data/" +/*__precedentConstraint__.txt"*/args[1],mapAct);
 
-    Collection<MeetConstraint> collecMeetCons = meetConsCollec("projetpoo/Activity_Constraint/__meetConstraint__.txt",mapAct);
-    Collection<MaxSpanConstraint> collecMaxSpan = maxSpanCollec("projetpoo/Activity_Constraint/__maxSpanConstraint__.txt",mapAct); //inverse l'ordre des deuwx premières activités si la première est à 0
+    Collection<MeetConstraint> collecMeetCons = meetConsCollec("projetpoo/data/" +/*__meetConstraint__.txt"*/args[2],mapAct);
+    Collection<MaxSpanConstraint> collecMaxSpan = maxSpanCollec("projetpoo/data/" +/*__maxSpanConstraint__.txt"*/args[3],mapAct); //inverse l'ordre des deuwx premières activités si la première est à 0
+    System.out.println(args[0]+" || "+args[1]+" || "+args[2]+" || "+args[3]);
 
 
 
